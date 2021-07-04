@@ -12,8 +12,8 @@ time_table_drop = "DROP TABLE IF EXISTS time;"
 songplay_table_create = ("""
     CREATE TABLE IF NOT EXISTS songplays (
         songplay_id serial PRIMARY KEY NOT NULL, 
-        start_time timestamp , 
-        user_id int, 
+        start_time timestamp NOT NULL, 
+        user_id int NOT NULL, 
         level varchar, 
         song_id varchar, 
         artist_id varchar, 
@@ -22,7 +22,6 @@ songplay_table_create = ("""
         user_agent varchar
         )
     ;""")
-# REFERENCES time(start_time)
 
 # dimension tables
 user_table_create = ("""
@@ -104,12 +103,14 @@ time_table_insert = """
 
 
 # FIND SONGS
-#################################################################################
+
 song_select = ("""
     SELECT songs.song_id, artists.artist_id
     FROM songs
     JOIN artists ON artists.artist_id = songs.artist_id
-    
+    WHERE songs.title=(%s) 
+        AND artists.name=(%s) 
+        AND songs.duration=(%s)
     """)
 
 # find the song ID and artist ID based on the title, artist name, and duration of a song.

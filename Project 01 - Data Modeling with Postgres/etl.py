@@ -6,6 +6,16 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    '''
+    Reads the json file specified in the filepath and inserts this data into the songs and artists table.
+    
+    Inputs:
+        cur: cursor linked to the connector to the database
+        filepath: path to the year folder containing the months with the json files
+    
+    Output:
+        filled songs and artists tables
+    '''
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -19,6 +29,16 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    '''
+    Reads the json file specified in the filepath and inserts this data into the users and songplays tables. Also creates the time table by taking the timestamp column and filling the table with custom columns.
+    
+    Inputs:
+        cur: cursor linked to the connector to the database
+        filepath: path to the year folder containing the months with the json files
+        
+    Output:
+        filled users, songplays, and time tables
+    '''
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -69,6 +89,19 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    '''
+    Function to read in the data from json files into the database.
+    
+    Inputs:
+        cur: cursor linked to the connector to the database
+        conn: connection to the PostgreSQL database with the corresponding credentials
+        filepath: path to the year folder containing the months with the json files
+        func: function to run on those files (either process_log_file or process_song_file)
+        
+    Output:
+        Fills the created empty PostgreSQL database with the data points.
+        
+    '''
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -88,6 +121,9 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    '''
+    This function/script processes all the data in the specified files paths and loads them into the database.
+    '''
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
