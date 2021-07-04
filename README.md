@@ -4,22 +4,22 @@
 
 ### Introduction to Data Modeling
 
-- Understand the purpose of data modeling
-- Identify the strengths and weaknesses of different types of databases and data storage techniques
-- Create a table in Postgres and Apache Cassandra
+- Purpose of data modeling
+- Strengths and weaknesses of different types of databases and data storage techniques
+- Table creation in Postgres and Apache Cassandra
 
 ### Relational Data Models
 
-- Understand when to use a relational database
-- Understand the difference between OLAP and OLTP databases
-- Create normalized data tables
-- Implement denormalized schemas (e.g. STAR, Snowflake)
+- When to use relational databases
+- Difference between OLAP and OLTP databases
+- Normalization of data tables
+- Denormalized schemas (e.g. STAR, Snowflake)
 
 ### NoSQL Data Models
 
-- Understand when to use NoSQL databases and how they differ from relational databases
-- Select the appropriate primary key and clustering columns for a given use case
-- Create a NoSQL database in Apache Cassandra
+- When to use NoSQL databases and differences to relational databases
+- Appropriate primary keys and clustering columns for a given use case
+- NoSQL database in Apache Cassandra
 
 ### Project 1: Data Modeling with Postgres and Apache Cassandra
 
