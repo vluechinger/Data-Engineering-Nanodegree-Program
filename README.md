@@ -21,10 +21,16 @@
 - Appropriate primary keys and clustering columns for a given use case
 - NoSQL database in Apache Cassandra
 
-### Project 1: Data Modeling with Postgres and Apache Cassandra
+### Project 1: Data Modeling with Postgres
 
 - Create tables in PostgreSQL for a fictional dataset
 - Build an ETL pipeline 
+
+### Project 2: Data Modeling with Apache Cassandra
+
+- create tables in Apache Cassandra for a fictional dataset
+- modeling the data for specific queries
+- completing an ETL pipeline
 
 ## Course 2: Cloud Data Warehouses
 
